@@ -1,5 +1,59 @@
 {%extends 'all-gallery/base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
 {{block.super}}
+
+<style>
+    *{
+        font-family: 'Charm',
+    cursive;
+        font-size: 24px;
+    }
+</style>
+
+<div class="container">
+
+    <div id="introduction" class='text-center'>
+    
+        <h1 style="font-family: 'Cinzel Decorative', cursive;">Welcome To Vitalis Album</h1>
+        <hr>
+        <p>Your favorite online photo album</p>
+        <hr>
+    
+    </div>
+
+    <!-- Images Section -->
+
+    <div class="images">
+
+        {% for image in images %}
+
+        <img src="{{image.image.url}}" alt="" class="img-responsive">
+        <br>
+        <p> <strong>Name: </strong> {{image.image_name}}</p>
+        <p> <strong>Description: </strong> {{image.image_details}} </p>
+        <p><strong>Category: </strong> {{image.image_category}} </p>
+        <p><strong>Location: </strong>{{image.image_location}}</p>
+
+        {% endfor %}
+
+    </div>
+
+
+</div>
+
 {% endblock %}

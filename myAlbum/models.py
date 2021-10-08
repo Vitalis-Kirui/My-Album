@@ -16,6 +16,11 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
+    @classmethod
+    def get_locations(cls):
+        location = Location.objects.all()
+        return location
+
     class Meta:
         ordering = ['location_name']
 
