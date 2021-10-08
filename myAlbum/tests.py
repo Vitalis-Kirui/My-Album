@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Category,Location
+from .models import Category, Location, Image
 
 class CategoryTestClass(TestCase):
     def setUp(self):
@@ -36,3 +36,28 @@ class LocationTestClass(TestCase):
         self.location.delete_location()
         category = Location.objects.all()
         self.assertTrue(len(category) == 0)
+
+class ImageTestClass(TestCase):
+    
+    def setUp(self):
+
+        self.location = Location(location_name='Masai Mara')
+        self.location.save_location()
+
+        self.category = Category(category_name='Wildlife')
+        self.category.save_category()
+
+        self.mara= Image(id=1,image_name = 'Elephants', image_details ='Testing images class model',image_location=self.location,image_category=self.category)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.mara,Image))
+    
+    def test_save_image(self):
+        self.mara.save_image()
+        image = Image.objects.all()
+        self.assertTrue(len(image) > 0)
+
+    def test_delete_image(self):
+        self.mara.delete_image()
+        image = Image.objects.all()
+        self.assertTrue(len(image)== 0)
