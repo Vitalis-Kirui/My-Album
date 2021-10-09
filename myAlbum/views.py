@@ -29,3 +29,9 @@ def get_image_location(request,location_name):
     image= Image.get_images_by_location(location_name)
     message = f"{location_name}"
     return render(request, 'all-gallery/image-location.html',{"message":message,"image": image,"location":location})
+
+def image_properties(request,image_id):
+    location=Location.get_locations()
+
+    image = Image.get_image_by_id(image_id)
+    return render(request, {"image" : image,"location":location})

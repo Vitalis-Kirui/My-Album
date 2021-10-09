@@ -15,9 +15,7 @@
     <div class="row">
         {% if category%}
         <p class="text-center">Found {{ category|length }} images on {{message}}</p>
-        <div class="container">
             <hr />
-        </div>
         {% else %}
         <p class="text-center">We can't seem to find any images in that category. Try another category</p>
         {% endif %}
@@ -46,7 +44,7 @@
                         </div>
                         <div class="modal-body">
                             <p class="text-justify">{{category.image_details}}</p>
-                            <p class="text-left"><b>Location:</b> {{category.image_location}}</p>
+                            <p class="text-left"><b>Location:</b> {{category.location}}</p>
                             <p class="text-left"><b>Category:</b> {{category.category}}</p>
                         </div>
                         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 padding-1">

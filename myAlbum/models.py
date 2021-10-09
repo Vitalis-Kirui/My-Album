@@ -49,7 +49,7 @@ class Image(models.Model):
     image_name =models.CharField(max_length=100)
     image_details =models.TextField()
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
-    image_location = models.ForeignKey(Location ,on_delete=models.CASCADE)
+    location = models.ForeignKey(Location ,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.image_name
@@ -76,5 +76,10 @@ class Image(models.Model):
 
     @classmethod
     def get_images_by_location(cls,location_name):
-        location = cls.objects.filter(image_location__location_name = location_name).all()
+        location = cls.objects.filter(location__location_name = location_name).all()
         return location
+
+    @classmethod
+    def get_image_by_id(cls, image_id):
+        image = cls.objects.get(id=image_id)
+        return image
