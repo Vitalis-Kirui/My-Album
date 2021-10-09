@@ -61,3 +61,9 @@ class ImageTestClass(TestCase):
         self.mara.delete_image()
         image = Image.objects.all()
         self.assertTrue(len(image)== 0)
+
+    def test_update_image(self):
+        self.mara.save_image()
+        self.mara.update_image(self.mara.id, 'images/img.jpg')
+        new_img = Image.objects.filter(image='media/images/img1.jpg')
+        self.assertFalse(len(new_img) > 0)
