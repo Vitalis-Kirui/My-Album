@@ -47,7 +47,7 @@ class ImageTestClass(TestCase):
         self.category = Category(category_name='Wildlife')
         self.category.save_category()
 
-        self.mara= Image(id=1,image_name = 'Elephants', image_details ='Testing images class model',image_location=self.location,image_category=self.category)
+        self.mara= Image(id=1,image_name = 'Elephants', image_details ='Testing images class model',image_location=self.location,category=self.category)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.mara,Image))

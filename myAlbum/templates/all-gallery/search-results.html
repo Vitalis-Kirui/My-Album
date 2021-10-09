@@ -1,0 +1,28 @@
+{%extends 'all-gallery/base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+
+{% block content %}
+
+<style>
+    p{
+        font-size :25px;
+    }
+</style>
+
+<div class="container">
+
+    <div class="row">
+        {% if category%}
+        <p class="text-center">Found {{ category|length }} images on {{message}}</p>
+        <div class="container">
+            <hr />
+        </div>
+        {% else %}
+        <p class="text-center">We can't seem to find any images in that category. Try another category</p>
+        {% endif %}
+    
+    </div>
+ 
+</div>
+{% endblock %}

@@ -16,10 +16,10 @@ def search_category(request):
     
     location=Location.get_locations()
 
-    if 'image_category' in request.GET and request.GET["image_category"]:
-        category = request.GET.get("image_category")
+    if 'category' in request.GET and request.GET["category"]:
+        category = request.GET.get("category")
         search = Image.search_by_category(category)
         message = f"{category}"
-        return render(request, 'search-results.html',{"message":message,"category": search,"location":image_location})
+        return render(request, 'all-gallery/search-results.html',{"message":message,"category": search,"location":location})
     else:
-        return render(request, 'search-results.html')
+        return render(request, 'all-gallery/search-results.html')

@@ -48,7 +48,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     image_name =models.CharField(max_length=100)
     image_details =models.TextField()
-    image_category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image_location = models.ForeignKey(Location ,on_delete=models.CASCADE)
 
     def __str__(self):
