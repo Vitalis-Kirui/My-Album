@@ -67,3 +67,9 @@ class ImageTestClass(TestCase):
         self.mara.update_image(self.mara.id, 'images/img.jpg')
         new_img = Image.objects.filter(image='media/images/img1.jpg')
         self.assertFalse(len(new_img) > 0)
+
+    def test_get_image_by_id(self):
+        self.mara.save_image()
+        img = self.mara.get_image_by_id(self.mara.id)
+        images = Image.objects.filter(id=self.mara.id)
+        self.assertTrue(img, images) 
