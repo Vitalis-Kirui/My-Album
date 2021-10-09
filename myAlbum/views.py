@@ -24,8 +24,8 @@ def search_category(request):
     else:
         return render(request, 'all-gallery/search-results.html')
 
-def image_location(request,location_name):
+def get_image_location(request,location_name):
     location=Location.get_locations()
     image= Image.get_images_by_location(location_name)
     message = f"{location_name}"
-    return render(request, 'all-gallery/image_location.html',{"message":message,"image": image,"location":location})
+    return render(request, 'all-gallery/image-location.html',{"message":message,"image": image,"location":location})
