@@ -47,6 +47,7 @@
                 <img src="{{image.image.url}}" class="img-responsive" alt="{{image.image_name}}"
                     style="width:100%;width:100%">
             </a>
+                                            <hr>
             <div class="modal fade" id="{{image.id}}" role="dialog">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -55,7 +56,9 @@
                             <h4 class="modal-title">{{image.image_name}}</h4>
                             <img src="{{image.image.url}}" class="img-responsive" alt="Image"
                                 style="width:100%;max-width:100%">
+
                         </div>
+
                         <div class="modal-body">
                             <p class="text-justify">{{image.image_details}}</p>
                             <p class="text-left"><strong style="color: brown;">Location: </strong>
@@ -92,7 +95,10 @@
 
     </div>
 
-
 </div>
+
+<footer class="footer">
+    <p class="text-center">© Kipyegon Kirui Vitalis 2021. All Rights Reserved</p>
+</footer>
 
 {% endblock %}
