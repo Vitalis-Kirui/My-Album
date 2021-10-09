@@ -73,3 +73,13 @@ class ImageTestClass(TestCase):
         img = self.mara.get_image_by_id(self.mara.id)
         images = Image.objects.filter(id=self.mara.id)
         self.assertTrue(img, images) 
+
+    def test_search_by_category(self):
+        category = 'Wildlife'
+        found_img = self.mara.search_by_category(category)
+        self.assertFalse(len(found_img) > 1)  
+
+    def tearDown(self):
+        Image.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()
