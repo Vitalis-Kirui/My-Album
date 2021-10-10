@@ -23,6 +23,15 @@
             cursive;
         font-size: 24px;
     }
+    #introduction{
+        margin-top:-20px;
+        padding-top: 20px;
+        background-color: rgb(218, 196, 76);
+    }
+    footer{
+        background-color: rgb(218, 196, 76);
+        padding:10px;
+    }
 </style>
 
 <div id="introduction" class='text-center'>
@@ -41,7 +50,7 @@
     <div class="images">
 
         {% for image in images%}
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <a href="#{{image.id}}" data-toggle="modal" data-target="#{{image.id}}">
                 <h5 class="text-center" style="font-size:25px; font-weight:600">{{image.image_name}}</h5>
                 <img src="{{image.image.url}}" class="img-responsive" alt="{{image.image_name}}"
