@@ -93,15 +93,6 @@ WSGI_APPLICATION = 'album.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'myalbum',
-#         'USER': 'moringa',
-#     'PASSWORD':'Computer757575.',
-#     }
-# }
-
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
